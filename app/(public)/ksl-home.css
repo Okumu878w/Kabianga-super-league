@@ -1,0 +1,143 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800&family=Inter:wght@400;500;600;700&display=swap');
+
+/* Everything is scoped to .ksl-home so other pages are untouched.
+   To use a hero photo of players, drop it in /public/images/ksl-hero.jpg
+   and set:  --ksl-hero-img: url('/images/ksl-hero.jpg');  below. */
+   
+.ksl-home {
+  --ksl-bg: #061233;
+  --ksl-bg2: #0a1e52;
+  --ksl-panel: #0b1b45;
+  --ksl-line: #1b3b86;
+  --ksl-cyan: #14b4ff;
+  --ksl-cyan-d: #0a8de0;
+  --ksl-gold: #f5b82e;
+  --ksl-red: #e5334b;
+  --ksl-text: #eaf1ff;
+  --ksl-muted: #9db2dc;
+  --ksl-hero-img: url('/images/ksl-hero.jpg');
+
+  /* override the site's tokens inside this page */
+  --green: var(--ksl-cyan);
+  color: var(--ksl-text);
+  font-family: 'Inter', system-ui, sans-serif;
+  background:
+    radial-gradient(900px 400px at 85% -5%, rgba(20,180,255,.18), transparent 60%),
+    linear-gradient(180deg, var(--ksl-bg2) 0%, var(--ksl-bg) 40%);
+  padding-bottom: 40px;
+}
+.ksl-home .muted { color: var(--ksl-muted); }
+
+/* ---------- HERO ---------- */
+.ksl-hero {
+  display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;
+  min-height: 320px; padding: 36px clamp(16px, 4vw, 48px);
+  border-bottom: 1px solid var(--ksl-line);
+  background:
+    linear-gradient(90deg, rgba(6,18,51,.96) 0%, rgba(6,18,51,.75) 45%, rgba(6,18,51,.2) 100%),
+    var(--ksl-hero-img) center / cover no-repeat,
+    linear-gradient(115deg, transparent 62%, rgba(20,180,255,.25) 62.2%, transparent 62.6%),
+    radial-gradient(600px 260px at 60% 100%, rgba(40,160,70,.28), transparent 70%);
+}
+.ksl-eyebrow { display: flex; align-items: center; gap: 12px; color: var(--ksl-cyan); font-size: 13px; letter-spacing: .25em; text-transform: uppercase; font-weight: 600; }
+.ksl-eyebrow i { width: 34px; height: 2px; background: var(--ksl-cyan); display: inline-block; }
+.ksl-hero h1 { margin: 10px 0 6px; font-family: 'Barlow Condensed', 'Inter', sans-serif; font-style: italic; font-weight: 800; line-height: .92; letter-spacing: -.01em; font-size: clamp(48px, 8vw, 96px); }
+.ksl-hero h1 .w { display: block; color: #fff; }
+.ksl-hero h1 .c { display: block; color: var(--ksl-cyan); text-shadow: 0 0 28px rgba(20,180,255,.35); }
+.ksl-tag { font-style: italic; font-size: clamp(18px, 2.2vw, 26px); font-weight: 600; margin: 8px 0 0; }
+.ksl-tag b { color: var(--ksl-cyan); margin: 0 6px; }
+.ksl-lead { max-width: 52ch; color: var(--ksl-muted); margin: 10px 0 0; }
+.ksl-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.ksl-home .btn { background: var(--ksl-cyan); color: #04122e; border: 1px solid var(--ksl-cyan); border-radius: 8px; font-weight: 700; padding: 11px 18px; }
+.ksl-home .btn:hover { background: #3cc4ff; }
+.ksl-home .btn.ghost { background: transparent; color: var(--ksl-text); border-color: var(--ksl-line); }
+.ksl-home .btn.ghost:hover { border-color: var(--ksl-cyan); color: var(--ksl-cyan); }
+
+.ksl-trophy { text-align: center; padding: 8px 10px; min-width: 230px; }
+.ksl-cup { width: 84px; height: 84px; color: var(--ksl-gold); filter: drop-shadow(0 0 18px rgba(245,184,46,.45)); }
+.ksl-trophy-name { font-family: 'Barlow Condensed', sans-serif; font-style: italic; font-weight: 800; font-size: 34px; color: var(--ksl-gold); line-height: 1; margin-top: 6px; }
+.ksl-trophy-sub { font-style: italic; color: var(--ksl-muted); margin: 4px 0 12px; }
+.ksl-trophy-stats { display: grid; gap: 4px; font-size: 13px; color: var(--ksl-muted); }
+.ksl-trophy-stats b { color: #fff; font-size: 16px; }
+
+/* ---------- DASHBOARD GRID ---------- */
+.ksl-grid { display: grid; gap: 16px; padding: 16px clamp(16px, 4vw, 48px) 0; }
+.ksl-row1 { grid-template-columns: 1.05fr 1fr 1fr; }
+.ksl-row2 { grid-template-columns: 1fr 1.15fr 1fr; }
+.ksl-row-awards { grid-template-columns: 1fr 1fr; }
+
+.ksl-panel {
+  background: linear-gradient(180deg, rgba(14,34,88,.9), rgba(8,22,60,.95));
+  border: 1px solid var(--ksl-line); border-radius: 12px; padding: 16px;
+  box-shadow: 0 0 0 1px rgba(20,180,255,.04), 0 10px 30px rgba(0,0,0,.25);
+  min-width: 0;
+}
+/* panel headings: italic condensed, cyan "view all" link */
+.ksl-panel h2, .ksl-panel h3.head-title { font-family: 'Barlow Condensed', sans-serif; font-style: italic; font-weight: 800; text-transform: uppercase; letter-spacing: .02em; }
+.ksl-panel h2 { font-size: 22px; margin: 0; }
+.ksl-home .chip { background: transparent; border: 0; color: var(--ksl-cyan); font-weight: 600; padding: 0; }
+.ksl-home .chip:hover { text-decoration: underline; }
+.ksl-panel .row .chip, .ksl-panel .chip + .chip { border: 1px solid var(--ksl-line); padding: 3px 10px; border-radius: 999px; color: var(--ksl-text); }
+
+/* fixture / result cards inside panels: flat rows with dividers */
+.ksl-list { display: grid; gap: 0; }
+.ksl-list > * { background: transparent !important; border: 0 !important; border-bottom: 1px solid var(--ksl-line) !important; border-radius: 0 !important; box-shadow: none !important; padding: 12px 0 !important; }
+.ksl-list > *:last-child { border-bottom: 0 !important; }
+.ksl-home .badge { background: rgba(20,180,255,.15); color: var(--ksl-cyan); border-radius: 999px; font-weight: 700; }
+.ksl-home .badge.gold { background: rgba(245,184,46,.15); color: var(--ksl-gold); }
+.ksl-home .badge.red, .ksl-list .badge.live { background: var(--ksl-red); color: #fff; }
+
+/* standings table */
+.ksl-home table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.ksl-home th { color: var(--ksl-muted); font-weight: 600; font-size: 12px; text-align: left; padding: 6px 8px; }
+.ksl-home td { padding: 9px 8px; border-top: 1px solid rgba(27,59,134,.5); }
+.ksl-home tbody tr:first-child td { background: var(--ksl-cyan-d); color: #fff; font-weight: 700; }
+.ksl-home tbody tr:first-child td:first-child { border-radius: 6px 0 0 6px; }
+.ksl-home tbody tr:first-child td:last-child { border-radius: 0 6px 6px 0; }
+.ksl-home tbody tr:hover td { background: rgba(20,180,255,.08); }
+
+/* scorers */
+.ksl-scorers { display: grid; }
+.ksl-scorers > .row { padding: 8px 0; border-bottom: 1px solid var(--ksl-line); }
+.ksl-scorers > .row:last-child { border-bottom: 0; }
+.ksl-home .pos { width: 22px; font-weight: 700; }
+.ksl-goals { font-size: 22px; font-weight: 700; }
+
+/* news */
+.ksl-news-list { display: grid; gap: 0; }
+.ksl-news-item { display: block; padding: 10px 0; border-bottom: 1px solid var(--ksl-line); }
+.ksl-news-item:last-child { border-bottom: 0; }
+.ksl-news-item h3 { margin: 0 0 4px; font-size: 16px; font-weight: 700; line-height: 1.3; }
+.ksl-news-item:hover h3 { color: var(--ksl-cyan); }
+.ksl-news-item p { margin: 4px 0 0; }
+
+/* promo banner */
+.ksl-banner {
+  position: relative; border-radius: 12px; border: 1px solid var(--ksl-line); padding: 22px; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center; gap: 10px;
+  background:
+    radial-gradient(240px 160px at 85% 15%, rgba(20,180,255,.4), transparent 70%),
+    linear-gradient(135deg, #0b2a7a, #061233 70%);
+}
+.ksl-banner p { margin: 0; font-family: 'Barlow Condensed', sans-serif; font-style: italic; font-weight: 800; font-size: clamp(26px, 3vw, 38px); line-height: 1.05; transform: rotate(-4deg); transform-origin: left; }
+.ksl-banner em { color: var(--ksl-cyan); }
+.ksl-banner span { font-style: italic; color: #fff; opacity: .9; transform: rotate(-4deg); }
+
+/* stats strip */
+.ksl-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding: 16px clamp(16px, 4vw, 48px) 0; }
+.ksl-strip > div { background: var(--ksl-panel); border: 1px solid var(--ksl-line); border-radius: 12px; padding: 16px; }
+.ksl-strip b { display: block; font-family: 'Barlow Condensed', sans-serif; font-style: italic; font-size: 38px; color: var(--ksl-cyan); line-height: 1; }
+.ksl-strip span { color: var(--ksl-muted); font-size: 13px; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1100px) {
+  .ksl-row1, .ksl-row2 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 760px) {
+  .ksl-hero { grid-template-columns: 1fr; }
+  .ksl-trophy { text-align: left; }
+  .ksl-row1, .ksl-row2, .ksl-row-awards { grid-template-columns: 1fr; }
+  .ksl-strip { grid-template-columns: 1fr 1fr; }
+}
+.ksl-home a:focus-visible, .ksl-home .btn:focus-visible { outline: 2px solid var(--ksl-gold); outline-offset: 2px; }
